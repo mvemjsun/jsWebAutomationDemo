@@ -34,7 +34,8 @@ class LoginPage extends BasePage {
       }
 
       async signIn() {
-        return await this.findElementByCss(PAGE_LOGIN_BUTTON).click();
+        let loginButton = await this.findElementByCss(PAGE_LOGIN_BUTTON);
+        loginButton.click();
       }
 
       async getLoginHeader() {

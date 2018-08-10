@@ -33,3 +33,8 @@ And('I should see a email address label with text {string}', async function (exp
   const emailLabelText = await emailLabel.getText();
   assert.strictEqual(emailLabelText, expectedText);
 }, timeouts.STEP_TIMEOUTS.TIMEOUT);
+
+And('I attempt to login without any credentials', async function () {
+  const loginPage = new LoginPage(this.driver);
+  await loginPage.signIn();
+}, timeouts.STEP_TIMEOUTS.TIMEOUT);

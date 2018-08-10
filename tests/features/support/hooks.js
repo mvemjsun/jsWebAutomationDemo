@@ -62,7 +62,6 @@ Before({ timeout: SENARIO_HOOK_TIMEOUT }, async function(scenario) {
 
     console.log(`Creating driver for ${browserName}`);
     driver = await builder
-        // .usingServer("http://localhost:9515/wd")
         .forBrowser(browserName)
         .build();
 
@@ -85,12 +84,9 @@ After({ timeout: SENARIO_HOOK_TIMEOUT }, async function(scenario) {
 });
 
 process.on(EVENTS.EXIT, terminationEventHandler);
-// catches ctrl+c event
 process.on(EVENTS.SIGINT, terminationEventHandler);
-// catches "kill pid" (for example: nodemon restart)
 process.on(EVENTS.SIGUSR1, terminationEventHandler);
 process.on(EVENTS.SIGUSR2, terminationEventHandler);
-// catches uncaught exceptions
 process.on(EVENTS.UNCAUGHTEXCEPTION, terminationEventHandler);
 
 createTestResultFolderIfNeeded();
