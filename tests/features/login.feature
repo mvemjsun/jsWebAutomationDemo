@@ -9,5 +9,11 @@ Feature: As a crypto bank user
       And I should see a login header with text "Crypto Bank Login"
       And I should see a email address label with text "Email address"
 
-  Scenario: Attempt to login
+  Scenario: Attempt to login without credentials
       When I attempt to login without any credentials
+
+  Scenario: Attempt to login with wrong credentials
+      When I enter wrong email "wrong@email.com"
+      And I enter a wrong password "wrongPassword"
+      And I attempt to login
+      Then I should see login error message

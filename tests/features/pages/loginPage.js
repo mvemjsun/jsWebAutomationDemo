@@ -49,6 +49,17 @@ class LoginPage extends BasePage {
       async getPasswordLabel() {
         return await this.findElementByCss(PAGE_PASSWORD_LABEL);
       }
+
+      async enterUserEmail(emailText) {
+        const emailTextbox = await this.getUserEmailTextbox();
+        emailTextbox.sendKeys(emailText);
+      }
+
+      async enterUserPassword(password) {
+        const passwordTextbox = await this.getUserPasswordTextbox();
+        passwordTextbox.sendKeys(password);
+
+      }
 }
 
 module.exports = LoginPage;
