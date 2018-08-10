@@ -1,0 +1,17 @@
+doctype html
+html
+  include head.pug
+    div(class="container", id="login-error")
+      div(class="row")
+        div(class="col")
+        div(class="col")
+          br
+          h1(id="welcomeHeader") Login Error
+          br
+          div(class="alert alert-primary" role="alert")
+            p Your login credentials have not been recognised.
+              a(href="/login" class="alert-link") Please try again.
+
+          include foot.pug
+
+        div(class="col")

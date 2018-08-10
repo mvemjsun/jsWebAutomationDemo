@@ -1,0 +1,36 @@
+doctype html
+html
+  include head.pug
+    div(class="container", id="welcome-container")
+      div(class="row")
+        div(class="col")
+        div(class="col")
+          br
+          h1(id="welcomeHeader") Welcome John
+          br
+          h2(id="accountSummary") Account Summary
+          br
+
+          h5 Savings Account Balance
+          h2(id="accountBalance") £200.97
+          p(class = "text-muted") (Overdraft Limit £250)
+          br
+
+          h5 Credit Card Balance
+          h2(id="cardBalance") £0.00
+          p(class = "text-muted") (Credit Limit £2600)
+          br
+
+          address
+            - var address1 = "1 Drury Lane<br>Bumble Town<br>Bell County<br>P: (123) 456-7890<br>Email: me@email.com";
+
+            h5 Address
+            p(id="address") !{address1}
+
+          form(action="logout" method="POST")
+            div(class="form-group")
+              button(class="btn btn-primary" type="submit") Logout
+
+          include foot.pug
+
+        div(class="col")
