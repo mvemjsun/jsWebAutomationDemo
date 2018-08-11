@@ -35,8 +35,9 @@ npm run test
 The tests are BDD (Behaviour driven development) style. The feature describe the behaviour of the system under
 test & are written in `gerkhin`. This can be found in the `login.feature` file. The feature files are also commonly
 referred to as so called living or executable documentation. The features are backed by executable code called the `step definitions`. The step definitions are the actual javascript code that gets executed to run the tests.
-Ref 1 [Cucumber JS] (https://github.com/cucumber/cucumber-js)
-Ref 2 [Cucumber] (https://cucumber.io)
+
+- [Cucumber JS] (https://github.com/cucumber/cucumber-js)
+- [Cucumber] (https://cucumber.io)
 
 #### package.json
 The so called `devDependencies` section of the `package.json` file includes the below node modules to help us test
@@ -49,10 +50,11 @@ the app
 }
 ```
 The first of this is `chai` which provides support for writing easily readable assertions in our tests. Second is `cucumber` which provides us the ability of writing feature files and mapping them to step definition. Finally we have `selenium-webdriver` which actually acts a glue between the browser and the browser driver. In our case we are using "Chrome" and "Chromium".
-Ref 1 [Chai] (http://www.chaijs.com/guide/styles/#assert)
-Ref 2 [Selenium JS] (https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs)
-Ref 3 [Selenium webdriver API] (http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index.html)
-Ref 4 [Chromedriver] (https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
+
+- [Chai] (http://www.chaijs.com/guide/styles/#assert)
+- [Selenium JS] (https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs)
+- [Selenium webdriver API] (http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index.html)
+- [Chromedriver] (https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
 
 #### Test code architecture
 wip
