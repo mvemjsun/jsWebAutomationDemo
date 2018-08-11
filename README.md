@@ -8,7 +8,7 @@ If correct credentials are entered then the welcome page is presented otherwise 
 The tests in the project are BDD style tests that are driven by cucumber features and drive the tests using
 selenium webdriver.
 
-### Quick Start
+### Quick Start (TL;DR)
 
 1. Clone the project using `git clone git@github.com:mvemjsun/jsWebAutomationDemo.git`
 2. Install node modules - `npm install`.
@@ -29,13 +29,14 @@ npm run test
 0m08.415s
 ```
 
+### Tests
+wip
+
 ### Screens
+
 #### Login
 ![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/login.png?raw=true)
 #### Welcome
 ![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/welcome.png?raw=true)
 #### Error
 ![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/loginError.png?raw=true)
-
-### Tests
-wip
