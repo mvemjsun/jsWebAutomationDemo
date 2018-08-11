@@ -4,6 +4,7 @@
   "description": "Demo of js web automation",
   "main": "./src/index.js",
   "scripts": {
+    "start": "node ./src/index.js",
     "test": "./node_modules/.bin/cucumber-js tests/features --require tests/features/support --require tests/step_definitions --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json"
   },
   "keywords": [
@@ -21,8 +22,6 @@
   "devDependencies": {
     "chai": "4.1.2",
     "cucumber": "4.2.1",
-    "cucumber-html-reporter": "4.0.2",
-    "mocha": "3.2.0",
     "selenium-webdriver": "3.6.0"
   },
   "config": {
