@@ -39,12 +39,12 @@ And('I attempt to login without any credentials', async function () {
   await loginPage.signIn();
 }, timeouts.STEP_TIMEOUTS.TIMEOUT);
 
-When('I enter wrong email {string}', async function (emailAddress) {
+When('I enter email as {string}', async function (emailAddress) {
   const loginPage = new LoginPage(this.driver);
   await loginPage.enterUserEmail(emailAddress);
 });
 
-When('I enter a wrong password {string}', async function (password) {
+When('I enter password as {string}', async function (password) {
   const loginPage = new LoginPage(this.driver);
   await loginPage.enterUserPassword(password);
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('fs');
-
+const CONSTANTS = require('./constants');
 const { Before, After, setDefaultTimeout, Status } = require('cucumber');
 const webdriver = require('selenium-webdriver');
 const STEP_TIMEOUT = 5 * 1000
@@ -51,8 +51,8 @@ async function tryAttachScreenshot(world) {
     }
 }
 
-Before({ timeout: SENARIO_HOOK_TIMEOUT }, async function(scenario) {
-    setDefaultTimeout(STEP_TIMEOUT);
+Before({ timeout: CONSTANTS.HOOK_TIMEOUTS.BEFORE }, async function(scenario) {
+    setDefaultTimeout(CONSTANTS.STEP_TIMEOUTS.TIMEOUT);
 
     const browserName = this.parameters.browserName;
     const scenarioName = scenario.pickle.name;
@@ -60,7 +60,6 @@ Before({ timeout: SENARIO_HOOK_TIMEOUT }, async function(scenario) {
 
     this.appUrl = APP_URL;
 
-    console.log(`Creating driver for ${browserName}`);
     driver = await builder
         .forBrowser(browserName)
         .build();
@@ -69,14 +68,14 @@ Before({ timeout: SENARIO_HOOK_TIMEOUT }, async function(scenario) {
     await this.driver.get(this.appUrl);
 });
 
-After({ timeout: SENARIO_HOOK_TIMEOUT }, async function(scenario) {
+After({ timeout: CONSTANTS.HOOK_TIMEOUTS.AFTER }, async function(scenario) {
     if (!this.driver) {
         return;
     }
 
     if (scenario.result.status === Status.FAILED) {
         await tryAttachScreenshot(this);
-        console.log(`Test failed - ${scenario.pickle.name}`)
+        console.log(`Scenario - ${scenario.pickle.name} - FAILED`)
     }
 
     await deinitWebdriver();
