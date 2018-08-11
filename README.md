@@ -31,11 +31,11 @@ npm run test
 
 ### Screens
 #### Login
-![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/public/img/login.png?raw=true)
+![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/login.png?raw=true)
 #### Welcome
-![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/public/img/welcome.png?raw=true)
+![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/welcome.png?raw=true)
 #### Error
-![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/public/img/loginError.png?raw=true)
+![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/loginError.png?raw=true)
 
 ### Tests
 wip
