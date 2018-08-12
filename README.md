@@ -36,8 +36,8 @@ The tests are BDD (Behaviour driven development) style. The feature describe the
 test & are written in `gerkhin`. This can be found in the `login.feature` file. The feature files are also commonly
 referred to as so called living or executable documentation. The features are backed by executable code called the `step definitions` (for example `loginSteps.js`). The step definitions are the actual javascript code that gets executed to run the tests.
 
-- [Cucumber JS] (https://github.com/cucumber/cucumber-js)
-- [Cucumber] (https://cucumber.io)
+- [Cucumber JS](https://github.com/cucumber/cucumber-js)
+- [Cucumber](https://cucumber.io)
 
 #### package.json
 The so called `devDependencies` section of the `package.json` file includes the below node modules to help us test
@@ -51,10 +51,10 @@ the app
 ```
 The first of this is `chai` which provides support for writing easily readable assertions in our tests. Second is `cucumber` which provides us the ability of writing feature files and mapping them to step definition. Finally we have `selenium-webdriver` which actually acts a glue between the browser and the browser driver. In our case we are using "Chrome" and "Chromium".
 
-- [Chai] (http://www.chaijs.com/guide/styles/#assert)
-- [Selenium JS] (https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs)
-- [Webdriver API] (http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index.html)
-- [Chromedriver] (https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
+- [Chai](http://www.chaijs.com/guide/styles/#assert)
+- [Selenium JS](https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs)
+- [Webdriver API](http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index.html)
+- [Chromedriver](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
 
 #### Test code architecture
 
@@ -71,8 +71,8 @@ The newer version of the java script standards have introduced the `async` and `
 
 The `await` keyword before an promise expression waits until the expression is resolved (the result is returned).
 
-- [Async function] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-- [Await] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+- [Async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+- [Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 
 #### Cucumber
 
@@ -106,7 +106,7 @@ After({ options }, async function(scenario) { code });
 The `scenario` object passed to the function above will have the format `{sourceLocation: {line, uri}, result: {duration, status}, pickle}` for `After` hooks. For `Before` hook it does NOT have the `result` property.
 
 Some of the `options` include `tags` & `timeout`. There can be more than one Before or After hook function declared. Before hooks are executed in the order they are declared. After hooks run in the opposite order of there declaration.
-- [API] (https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/api_reference.md#afteroptions-fn)
+- [API](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/api_reference.md#afteroptions-fn)
 
 BEFORE HOOK
 ```
@@ -160,7 +160,7 @@ The After hook does the below
 4. Delete's the `driver` property from cucumber world.
 
 Its worth noting that `this` refers to the cucumber `world` object inside the `Before` & `After` functions.
-- [World] (https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md)
+- [World](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md)
 
 ##### Cucumber steps
 
@@ -177,7 +177,7 @@ const And = Then; // 3
 
 The step function take the format `Given|And|Then|When('...step text...', async function () {}, timeout`. The function need not be an async function. However since we are using await inside the code we need to make the function `async`.
 
--[Steps] (https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/step_definitions.md#step-definitions)
+-[Steps](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/step_definitions.md#step-definitions)
 
 ### Screens
 
