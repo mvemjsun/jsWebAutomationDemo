@@ -15,7 +15,8 @@ selenium webdriver.
 3. Start demo app using `npm run start`.
 4. This should have started the server at port `9294`. Visit `http://localhost:9294/login` to confirm.
 5. Correct credentials to login are `me@email.com` / `password`
-5. To run tests - `npm run test`.
+6. To run tests - `npm run test`.
+7. To generate html report - `npm run testReport`
 
 ```
 npm run test
@@ -178,6 +179,12 @@ const And = Then; // 3
 The step function take the format `Given|And|Then|When('...step text...', async function () {}, timeout`. The function need not be an async function. However since we are using await inside the code we need to make the function `async`.
 
 [Steps](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/step_definitions.md#step-definitions)
+
+##### Test report
+Once the tests have been run using `npm run test`. The test report can be generated using `npm run testReport`.
+
+![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/images/testReport.png?raw=true)
+
 
 ### Web interface of the demo node app
 

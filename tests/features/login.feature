@@ -1,4 +1,5 @@
-Feature: As a crypto bank user
+Feature: Crypto Bank Login
+    As a crypto bank user
     I want to visit the bank website
     So that I can Login into my account
 
