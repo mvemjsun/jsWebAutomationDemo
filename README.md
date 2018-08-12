@@ -96,14 +96,68 @@ Hooks are included in the code using
 const { Before, After } = require('cucumber');
 ```
 
-Hook functions have the below signature.
+Hook functions could have the below signature.
 
 ```
 Before({ options }, async function(scenario) { code });
 After({ options }, async function(scenario) { code });
 ```
+
+The `scenario` object passed to the function above will have the format `{sourceLocation: {line, uri}, result: {duration, status}, pickle}` for `After` hooks. For `Before` hook it does NOT have the `result` property.
+
 Some of the `options` include `tags` & `timeout`. There can be more than one Before or After hook function declared. Before hooks are executed in the order they are declared. After hooks run in the opposite order of there declaration.
 - [API] (https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/api_reference.md#afteroptions-fn)
+
+BEFORE HOOK
+```
+Before({ timeout: CONSTANTS.HOOK_TIMEOUTS.BEFORE }, async function(scenario) {
+    setDefaultTimeout(CONSTANTS.STEP_TIMEOUTS.TIMEOUT); // 1
+
+    const browserName = this.parameters.browserName; // 2
+    const scenarioName = scenario.pickle.name; // 3
+    const builder = new webdriver.Builder(); // 4
+
+    this.appUrl = APP_URL;
+
+    driver = await builder
+        .forBrowser(browserName)
+        .build(); // 5
+
+    this.driver = driver; // 6
+    await this.driver.get(this.appUrl); // 7
+});
+```
+
+The `Before` hook in our code above does the below
+1. uses the cucumber supplied `setDefaultTimeout` method to set the default step timeout.
+2. set the `browserName` property from the injected cucumber world property of the same name.
+3. Extracts the scenario name.
+4. Instantiates a webdriver Builder instance.
+5. Creates the driver for the browser.
+6. Sets the driver variable.
+7. Loads the application starting url.
+
+AFTER HOOK
+```
+After({ timeout: CONSTANTS.HOOK_TIMEOUTS.AFTER }, async function(scenario) {
+    if (!this.driver) {
+        return;
+    } // 1
+
+    if (scenario.result.status === Status.FAILED) {
+        await tryAttachScreenshot(this);
+        console.log(`Scenario - ${scenario.pickle.name} - FAILED`)
+    } // 2
+
+    await deinitWebdriver(); // 3
+    delete this.driver; // 4
+});
+```
+The After hook does the below
+1. Checks if the driver instance exists else returns.
+2. If scenario failed tries to take a screen shot and prints the failed scenario name on console.
+3. Invokes the function `deinitWebdriver`
+4. Deletes the driver property from cucumber world.
 
 ### Screens
 
