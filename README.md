@@ -59,7 +59,7 @@ The first of this is `chai` which provides support for writing easily readable a
 #### Test code architecture
 
 ##### Page Object classes
-The so called page object design pattern for testing encapsulates the properties and actions of a page (screen) into its own class so that the test code (step definitions) can interact with the pages without having to include any screen specific logic into the tests itself. The main advantage of this model is that the tests become
+The so called page object design pattern for testing encapsulates the properties and actions on a page (screen) into its own class so that the test code (step definitions) can interact with the pages without having to include any screen specific logic into the tests itself. The main advantage of this model is that the tests become
 isolated from the screen design, they become simple to write and understand & are easier to maintain.
 
 In the code that we have, the `loginPage.js` file contains the `LoginPage` class that abstracts away the interactions with the login page.
@@ -161,6 +161,21 @@ The After hook does the below
 
 Its worth noting that `this` refers to the cucumber `world` object inside the `Before` & `After` functions.
 - [World] (https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md)
+
+##### Cucumber steps
+
+Its the step definition code where the test execution finally happens. In our case `loginSteps.js`, `loginErrorSteps.js` & `welcomeSteps.js` are where the step code resides.
+
+```
+const assert = require('chai').assert; // 1
+const { Given, When, Then} = require('cucumber'); // 2
+const And = Then; // 3
+```
+1. Requires the `chai` assertion code.
+2. Requires cucumber `Given, When & Then` functions to add syntactic sugar to the code.
+3. Some more syntactic sugar.
+
+The step function take the format `Given|And|Then|When('...step text...', async function () {}, timeout`. The function need not be an async function. However since we are using await inside the code we need to make the function `async`.
 
 ### Screens
 
