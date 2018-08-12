@@ -6,7 +6,8 @@ This project consists of a simple node application that presents a login page wi
 If correct credentials are entered then the welcome page is presented otherwise an error page is displayed.
 
 The tests in the project are BDD style tests that are driven by cucumber features and drive the tests using
-selenium webdriver. The README tries to detail the various parts of the test suite and how they fit together.
+selenium webdriver. The README tries to detail the various parts of the test suite and how they fit together. The
+pattern used in the tests could be used for any web application testing with appropriate modifications.
 
 ### Contents
 1 [Quick Start](https://github.com/mvemjsun/jsWebAutomationDemo#quick-start-tldr)
