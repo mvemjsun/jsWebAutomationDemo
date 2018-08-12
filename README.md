@@ -67,13 +67,43 @@ In the code that we have, the `loginPage.js` file contains the `LoginPage` class
 All of the page object classes inherit (extend) from the `BasePage` class that is defined in the `basePage.js` file. This file essentially abstracts away the `selenium-webdriver` method `findElements...` into various utility methods that help to locate web elements using css. Other utility/ helper methods can be abstracted into this class.
 
 ##### Async & Await
-The newer version of the java script standards have introduced the `async` and `await` keywords that have greatly simplified the writing of asynchronous code. An function marked as `async` always returns a `Promise`. Async functions are started synchronously but then are executed asynchronously removing the need to write the flakey waiting code which is not reliable.
+The newer version of the java script standards have introduced the `async` and `await` keywords that have greatly simplified the writing of asynchronous code. An function marked as `async` always returns a `Promise`. Async functions are started synchronously but then are executed asynchronously removing the need to write the flaky waiting code which is not reliable.
 
-The await keyword before an promise expression waits until the expression is resolved (the result is returned).
+The `await` keyword before an promise expression waits until the expression is resolved (the result is returned).
 
 - [Async function] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 - [Await] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 
+#### Cucumber
+
+The cucumber discussion can be split into 3 parts. First how its being invoked, secondly the cucumber hooks and last but not the least the step definitions.
+
+##### Invoking cucumber-js
+The cucumber test run is invoked using the command `npm run test` which maps to the package script
+
+```
+"test": "./node_modules/.bin/cucumber-js tests/features --require tests/features/support --require tests/step_definitions --world-parameters {\\\"browserName\\\":\\\"chrome\\\"} --format json:tests/results/chrome.json"
+```
+
+if we split this,  `./node_modules/.bin/cucumber-js` invokes the right version of cucumber-js, `--require` tells it the location of the code files, `--world-parameters` injects dependencies into cucumber and finally `--format` sets the format of the output test report.
+
+##### hooks.js
+Cucumber hooks are functions that are invoked during the lifecycle of a test run. They can be `Before` or `After`. These are opportunities for us to implement any setup or teardown code that is relevant at these points. For example we might want to load the login page before each test, set up the right web-driver instance, set global parameters etc.
+
+Hooks are included in the code using
+
+```
+const { Before, After } = require('cucumber');
+```
+
+Hook functions have the below signature.
+
+```
+Before({ options }, async function(scenario) { code });
+After({ options }, async function(scenario) { code });
+```
+Some of the `options` include `tags` & `timeout`. There can be more than one Before or After hook function declared. Before hooks are executed in the order they are declared. After hooks run in the opposite order of there declaration.
+- [API] (https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/api_reference.md#afteroptions-fn)
 
 ### Screens
 
