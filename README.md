@@ -34,7 +34,7 @@ npm run test
 #### Introduction
 The tests are BDD (Behaviour driven development) style. The feature describe the behaviour of the system under
 test & are written in `gerkhin`. This can be found in the `login.feature` file. The feature files are also commonly
-referred to as so called living or executable documentation. The features are backed by executable code called the `step definitions`. The step definitions are the actual javascript code that gets executed to run the tests.
+referred to as so called living or executable documentation. The features are backed by executable code called the `step definitions` (for example `loginSteps.js`). The step definitions are the actual javascript code that gets executed to run the tests.
 
 - [Cucumber JS] (https://github.com/cucumber/cucumber-js)
 - [Cucumber] (https://cucumber.io)
@@ -57,7 +57,14 @@ The first of this is `chai` which provides support for writing easily readable a
 - [Chromedriver] (https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
 
 #### Test code architecture
-wip
+
+##### Page Object classes
+The so called page object design pattern for testing encapsulates the properties and actions of a page (screen) into its own class so that the test code (step definitions) can interact with the pages without having to include any screen specific logic into the tests itself. The main advantage of this model is that the tests become
+isolated from the screen design, they become simple to write and understand & are easier to maintain.
+
+In the code that we have, the `loginPage.js` file contains the `LoginPage` class that abstracts away the interactions with the login page.
+
+All of the page object classes inherit (extend) from the `BasePage` class that is defined in the `basePage.js` file. This file essentially abstracts away the `selenium-webdriver` method `findElements...` into various utility methods that help to locate web elements using css. Other utility/ helper methods can be abstracted into this class.
 
 ### Screens
 
