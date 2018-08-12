@@ -181,7 +181,8 @@ The step function take the format `Given|And|Then|When('...step text...', async 
 [Steps](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/step_definitions.md#step-definitions)
 
 ##### Test report
-Once the tests have been run using `npm run test`. The test report can be generated using `npm run testReport`.
+Once the tests have been run using `npm run test`. The test report can be generated using `npm run testReport`. The `cucumber-html-reporter` node module has been used to generate test reports.
+[Cucumber HTML Reporter](https://www.npmjs.com/package/cucumber-html-reporter)
 
 ![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/images/testReport.png?raw=true)
 
