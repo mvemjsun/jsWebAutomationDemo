@@ -182,8 +182,8 @@ The step function take the format `Given|And|Then|When('...step text...', async 
 ### Screens
 
 #### Login
-![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/login.png?raw=true)
+![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/images/login.png?raw=true)
 #### Welcome
-![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/welcome.png?raw=true)
+![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/images/welcome.png?raw=true)
 #### Error
-![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/loginError.png?raw=true)
+![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/images/loginError.png?raw=true)
