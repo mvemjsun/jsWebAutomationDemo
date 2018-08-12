@@ -53,7 +53,7 @@ The first of this is `chai` which provides support for writing easily readable a
 
 - [Chai] (http://www.chaijs.com/guide/styles/#assert)
 - [Selenium JS] (https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs)
-- [Selenium webdriver API] (http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index.html)
+- [Webdriver API] (http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index.html)
 - [Chromedriver] (https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
 
 #### Test code architecture
@@ -65,6 +65,15 @@ isolated from the screen design, they become simple to write and understand & ar
 In the code that we have, the `loginPage.js` file contains the `LoginPage` class that abstracts away the interactions with the login page.
 
 All of the page object classes inherit (extend) from the `BasePage` class that is defined in the `basePage.js` file. This file essentially abstracts away the `selenium-webdriver` method `findElements...` into various utility methods that help to locate web elements using css. Other utility/ helper methods can be abstracted into this class.
+
+##### Async & Await
+The newer version of the java script standards have introduced the `async` and `await` keywords that have greatly simplified the writing of asynchronous code. An function marked as `async` always returns a `Promise`. Async functions are started synchronously but then are executed asynchronously removing the need to write the flakey waiting code which is not reliable.
+
+The await keyword before an promise expression waits until the expression is resolved (the result is returned).
+
+- [Async function] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+- [Await] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+
 
 ### Screens
 
