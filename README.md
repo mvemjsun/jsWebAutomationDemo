@@ -2,11 +2,26 @@
 
 ### Summary
 
-This project consists of a simple node app that presents a login page with the ability to enter login credentials.
+This project consists of a simple node application that presents a login page with the ability to enter login credentials.
 If correct credentials are entered then the welcome page is presented otherwise an error page is displayed.
 
 The tests in the project are BDD style tests that are driven by cucumber features and drive the tests using
-selenium webdriver.
+selenium webdriver. The README tries to detail the various parts of the test suite and how they fit together.
+
+### Contents
+1 [Quick Start](https://github.com/mvemjsun/jsWebAutomationDemo#quick-start-tldr)
+2 [Tests](https://github.com/mvemjsun/jsWebAutomationDemo#tests)
+  - [Introduction](https://github.com/mvemjsun/jsWebAutomationDemo#introduction)
+  - [Package.json](https://github.com/mvemjsun/jsWebAutomationDemo#packagejson)
+  - [Code Architecture](https://github.com/mvemjsun/jsWebAutomationDemo#test-code-architecture)
+    - [Page Object](https://github.com/mvemjsun/jsWebAutomationDemo#page-object-classes)
+    - [Async & Await](https://github.com/mvemjsun/jsWebAutomationDemo#async--await)
+  - [Cucumber](https://github.com/mvemjsun/jsWebAutomationDemo#cucumber)
+    - [Invoking](https://github.com/mvemjsun/jsWebAutomationDemo#invoking-cucumber-js)
+    - [Hooks](https://github.com/mvemjsun/jsWebAutomationDemo#hooksjs)
+    - [Steps](https://github.com/mvemjsun/jsWebAutomationDemo#cucumber-steps)
+    - [Test report](https://github.com/mvemjsun/jsWebAutomationDemo#test-report)
+3 [Images](https://github.com/mvemjsun/jsWebAutomationDemo#web-interface-of-the-demo-node-app)
 
 ### Quick Start (TL;DR)
 
@@ -182,6 +197,7 @@ The step function take the format `Given|And|Then|When('...step text...', async 
 
 ##### Test report
 Once the tests have been run using `npm run test`. The test report can be generated using `npm run testReport`. The `cucumber-html-reporter` node module has been used to generate test reports.
+
 [Cucumber HTML Reporter](https://www.npmjs.com/package/cucumber-html-reporter)
 
 ![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/images/testReport.png?raw=true)
