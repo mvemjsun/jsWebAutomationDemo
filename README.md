@@ -177,9 +177,9 @@ const And = Then; // 3
 
 The step function take the format `Given|And|Then|When('...step text...', async function () {}, timeout`. The function need not be an async function. However since we are using await inside the code we need to make the function `async`.
 
--[Steps](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/step_definitions.md#step-definitions)
+[Steps](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/step_definitions.md#step-definitions)
 
-### Screens
+### Web interface of the demo node app
 
 #### Login
 ![](https://github.com/mvemjsun/jsWebAutomationDemo/blob/master/images/login.png?raw=true)
