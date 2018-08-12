@@ -4,8 +4,6 @@ const fs = require('fs');
 const CONSTANTS = require('./constants');
 const { Before, After, setDefaultTimeout, Status } = require('cucumber');
 const webdriver = require('selenium-webdriver');
-const STEP_TIMEOUT = 5 * 1000
-const SENARIO_HOOK_TIMEOUT = 5 * 1000
 
 const RESULTS_FOLDER_PATH = './tests/results';
 const APP_URL = 'http://localhost:9294/login';
@@ -31,7 +29,7 @@ async function deinitWebdriver() {
     driver = undefined;
 }
 
-async function terminationEventHandler() {
+async function interruptHandler() {
     await deinitWebdriver();
     process.exit();
 };
@@ -81,11 +79,9 @@ After({ timeout: CONSTANTS.HOOK_TIMEOUTS.AFTER }, async function(scenario) {
     await deinitWebdriver();
     delete this.driver;
 });
-
-process.on(EVENTS.EXIT, terminationEventHandler);
-process.on(EVENTS.SIGINT, terminationEventHandler);
-process.on(EVENTS.SIGUSR1, terminationEventHandler);
-process.on(EVENTS.SIGUSR2, terminationEventHandler);
-process.on(EVENTS.UNCAUGHTEXCEPTION, terminationEventHandler);
-
+process.on(EVENTS.EXIT, interruptHandler);
+process.on(EVENTS.SIGINT, interruptHandler);
+process.on(EVENTS.SIGUSR1, interruptHandler);
+process.on(EVENTS.SIGUSR2, interruptHandler);
+process.on(EVENTS.UNCAUGHTEXCEPTION, interruptHandler);
 createTestResultFolderIfNeeded();

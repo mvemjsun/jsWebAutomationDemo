@@ -156,8 +156,11 @@ After({ timeout: CONSTANTS.HOOK_TIMEOUTS.AFTER }, async function(scenario) {
 The After hook does the below
 1. Checks if the driver instance exists else returns.
 2. If scenario failed tries to take a screen shot and prints the failed scenario name on console.
-3. Invokes the function `deinitWebdriver`
-4. Deletes the driver property from cucumber world.
+3. Invokes the function `deinitWebdriver`.
+4. Delete's the `driver` property from cucumber world.
+
+Its worth noting that `this` refers to the cucumber `world` object inside the `Before` & `After` functions.
+- [World] (https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/world.md)
 
 ### Screens
 
