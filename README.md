@@ -22,8 +22,8 @@ selenium webdriver. The README tries to detail the various parts of the test sui
     - [Hooks](https://github.com/mvemjsun/jsWebAutomationDemo#hooksjs)
     - [Steps](https://github.com/mvemjsun/jsWebAutomationDemo#cucumber-steps)
     - [Test report](https://github.com/mvemjsun/jsWebAutomationDemo#test-report)
-    
-3 [Images](https://github.com/mvemjsun/jsWebAutomationDemo#web-interface-of-the-demo-node-app)
+
+3 [Web interface](https://github.com/mvemjsun/jsWebAutomationDemo#web-interface-of-the-demo-node-app)
 
 ### Quick Start (TL;DR)
 
