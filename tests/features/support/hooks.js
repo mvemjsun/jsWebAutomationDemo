@@ -10,13 +10,14 @@ const APP_URL = 'http://localhost:9294/login';
 
 const EVENTS = {
   EXIT: 'exit',
-  SIGINT: 'SIGINT',
-  SIGUSR1: 'SIGUSR1',
-  SIGUSR2: 'SIGUSR2',
   UNCAUGHTEXCEPTION: 'uncaughtException'
 };
 
 let driver;
+
+process.on(EVENTS.EXIT, exitHandler);
+process.on(EVENTS.UNCAUGHTEXCEPTION, exitHandler);
+createTestResultFolderIfNeeded();
 
 async function deinitWebdriver() {
     if (!driver) {
@@ -29,7 +30,7 @@ async function deinitWebdriver() {
     driver = undefined;
 }
 
-async function interruptHandler() {
+async function exitHandler() {
     await deinitWebdriver();
     process.exit();
 };
@@ -79,9 +80,3 @@ After({ timeout: CONSTANTS.HOOK_TIMEOUTS.AFTER }, async function(scenario) {
     await deinitWebdriver();
     delete this.driver;
 });
-process.on(EVENTS.EXIT, interruptHandler);
-process.on(EVENTS.SIGINT, interruptHandler);
-process.on(EVENTS.SIGUSR1, interruptHandler);
-process.on(EVENTS.SIGUSR2, interruptHandler);
-process.on(EVENTS.UNCAUGHTEXCEPTION, interruptHandler);
-createTestResultFolderIfNeeded();
