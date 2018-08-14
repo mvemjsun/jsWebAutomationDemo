@@ -1,5 +1,4 @@
 const webdriver = require('selenium-webdriver');
-const until = webdriver.until;
 const using = webdriver.By;
 
 class BasePage {
